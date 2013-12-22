@@ -47,9 +47,10 @@ public class Main extends Application {
                     board.add(r, i, j);
                 }
                 else{
-                    Rectangle r = new Rectangle(60.0,60.0);
-                    if((b.getSquares()[i][j].getColor() == Color.BLACK)) r.setFill(new Color(0.2,0.2,0.2,1.0));
-                    else r.setFill(new Color(1,1,1,1.0));
+                    Image img;
+                    if(b.getSquares()[i][j].getColor() == Color.WHITE) img = new Image("chess/resources/images/el.png");
+                    else img = new Image("chess/resources/images/ed.png");
+                    ImageView r = new ImageView(img);
                     board.add(r, i, j);
                 }
 
