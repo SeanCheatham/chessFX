@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/chess/resources/images/ed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/chess/resources/images/el.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess/Main.java" afterPath="$PROJECT_DIR$/src/chess/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -125,7 +124,7 @@
       <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/chess/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="39" selection-start="2237" selection-end="2237" vertical-scroll-proportion="-0.08457711" vertical-offset="935" max-vertical-offset="2652">
+            <state line="45" column="53" selection-start="1811" selection-end="1811" vertical-scroll-proportion="0.4722222" vertical-offset="476" max-vertical-offset="2499">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -665,7 +664,11 @@
       <created>1387753703238</created>
       <updated>1387753703238</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added images for empty squares">
+      <created>1387753804598</created>
+      <updated>1387753804598</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -673,10 +676,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3291536" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -751,7 +754,8 @@
     </option>
     <MESSAGE value="Replaced if-else-if-else-if with switch for determining piece moves in Piece" />
     <MESSAGE value="Empty squares use images rather than rectangles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Empty squares use images rather than rectangles" />
+    <MESSAGE value="Added images for empty squares" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added images for empty squares" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1099,7 +1103,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/chess/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="39" selection-start="2237" selection-end="2237" vertical-scroll-proportion="-0.08457711" vertical-offset="935" max-vertical-offset="2652">
+        <state line="45" column="53" selection-start="1811" selection-end="1811" vertical-scroll-proportion="0.4722222" vertical-offset="476" max-vertical-offset="2499">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

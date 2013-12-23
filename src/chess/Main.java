@@ -34,28 +34,19 @@ public class Main extends Application {
         console.appendText("Constructed board of width: "+Integer.toString(b.getWidth())+" and Height: "+Integer.toString(b.getHeight())+"\n");
         addPieces(b);
         console.appendText(b.toString());
-        for(int i = 0; i <= b.getWidth() - 1; i++){
-            for(int j = 0; j <= b.getHeight() - 1; j++){
+        for(int i = b.getWidth() - 1; i >= 0; i--){
+            for(int j = b.getHeight() - 1; j >= 0; j--){
+                Pane p = new Pane();
+                p.setPrefHeight(60);
+                p.setPrefWidth(60);
+                if(b.getSquares()[i][j].getColor() == Color.WHITE) p.setStyle("display:block; -fx-background-color: #ffffff;");
+                else p.setStyle("-fx-background-color: #323232;");
                 if(b.getSquares()[i][j].getOccupant() != null && b.getSquares()[i][j].getOccupant().getImage() != null){
-                    Image img;
-                    if(b.getSquares()[i][j].getColor() == Color.WHITE && b.getSquares()[i][j].getOccupant().getImage() != null){
-                        img = b.getSquares()[i][j].getOccupant().getImage();
-                    }
-                    else img = b.getSquares()[i][j].getOccupant().getDarkImage();
+                    Image img = b.getSquares()[i][j].getOccupant().getImage();
                     ImageView r = new ImageView(img);
-                    r.setStyle("-fx-background-color:rgb(1,1,1);");
-                    board.add(r, i, j);
+                    p.getChildren().add(r);
                 }
-                else{
-                    Image img;
-                    if(b.getSquares()[i][j].getColor() == Color.WHITE) img = new Image("chess/resources/images/el.png");
-                    else img = new Image("chess/resources/images/ed.png");
-                    ImageView r = new ImageView(img);
-                    board.add(r, i, j);
-                }
-
-
-                board.getChildren().get(board.getChildren().size()-1).setStyle("-fx-background-color:rgb(1,1,1)");
+                board.add(p,b.getWidth()-1-i,b.getHeight()-1-j);
             }
         }
         grid.add(board,0,0);
@@ -122,7 +113,7 @@ public class Main extends Application {
         b.getSquares()[0][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
         b.getSquares()[1][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
         b.getSquares()[2][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
-        b.getSquares()[3][3].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
+        b.getSquares()[3][1].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
         b.getSquares()[4][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
         b.getSquares()[5][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
         b.getSquares()[6][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
@@ -131,7 +122,7 @@ public class Main extends Application {
         b.getSquares()[0][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
         b.getSquares()[1][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
         b.getSquares()[2][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
-        b.getSquares()[3][4].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        b.getSquares()[3][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
         b.getSquares()[4][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
         b.getSquares()[5][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
         b.getSquares()[6][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
