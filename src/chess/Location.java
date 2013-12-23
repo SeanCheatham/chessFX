@@ -6,11 +6,15 @@ public class Location {
 	private int file;
     private int rank;
     private Piece occupant;
+    public int whitePressure;
+    public int blackPressure;
 	
 	public Location(int x, int y) {
 		file = x;
 		rank = y;
 		occupant = null;
+        whitePressure = 0;
+        blackPressure = 0;
 	}
 	
 	public Location(int x, int y, Piece p) {

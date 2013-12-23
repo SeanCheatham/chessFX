@@ -79,23 +79,35 @@ public class Piece {
                     if(currentLocation.getFile()+1 <= this.board.getWidth()-1
                             && currentLocation.getRank()+1 <= this.board.getHeight()-1
                             && (this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()+1].getOccupant() == null
-                            || this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()+1].getOccupant().team != 0))
+                            || this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()+1].getOccupant().team != 0)){
                         vals.add(this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()+1]);
+                        this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()+1].whitePressure++;
+                    }
 
-                    if(currentLocation.getFile()-1 >= 0 && currentLocation.getRank()+1 <= this.board.getHeight()-1
+                    if(currentLocation.getFile()-1 >= 0
+                            && currentLocation.getRank()+1 <= this.board.getHeight()-1
                             && (this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()+1].getOccupant() == null
-                            || this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()+1].getOccupant().team != 0))
+                            || this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()+1].getOccupant().team != 0)){
                         vals.add(this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()+1]);
+                        this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()+1].whitePressure++;
+                    }
+
                 }
                 if(this.team == 1){
                     if(currentLocation.getFile()+1 <= this.board.getWidth()-1 && currentLocation.getRank()-1 >= 0
                             && (this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()-1].getOccupant() == null
-                            || this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()-1].getOccupant().team != 1))
+                            || this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()-1].getOccupant().team != 1)){
                         vals.add(this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()-1]);
+                        this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()-1].blackPressure++;
+                    }
+
                     if(currentLocation.getFile()-1 >= 0 && currentLocation.getRank()-1 >= 0
                             && (this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()-1].getOccupant() == null
-                            || this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()-1].getOccupant().team != 1))
+                            || this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()-1].getOccupant().team != 1)){
                         vals.add(this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()-1]);
+                        this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()-1].blackPressure++;
+                    }
+
                 }
                 break;
             //--- Possible ROOK moves ------------------------------------------------------
@@ -155,7 +167,6 @@ public class Piece {
             default:
                 break;
         }
-
 		attackableSquares = vals;
 	}
 
