@@ -49,15 +49,18 @@ public class Main extends Application {
                 String baseColor = "#323232";
                 if(b.getSquares()[i][j].getColor() == Color.WHITE) baseColor = "#ffffff";
                 int pressure = b.getSquares()[i][j].whitePressure-b.getSquares()[i][j].blackPressure;
-                int pressureVariant = pressure/10 * 200;
+                System.out.println(pressure);
+                int pressureVariant = 64 * (1+Math.abs(pressure)/2);
                 if(pressure == 0){
                     p.setStyle("display:block;-fx-background-color:"+baseColor+";");
                 }
                 else if(pressure > 0){
-                    p.setStyle("display:block;-fx-background-color:radial-gradient(focus-angle 0deg, focus-distance 0%, center 50% 50%, radius 100%,"+baseColor+", derive(rgb(0,255,0),"+Math.abs(pressureVariant)+"));");
+                    //p.setStyle("display:block;-fx-background-color:radial-gradient(focus-angle 0deg, focus-distance 0%, center 50% 50%, radius 100%,"+baseColor+", derive(rgb(0,255,0),"+Math.abs(pressureVariant)+"));");
+                    p.setStyle("display:block;-fx-background-color:rgb(0,"+pressureVariant+",0);");
                 }
                 else if(pressure < 0){
-                    p.setStyle("display:block;-fx-background-color:radial-gradient(focus-angle 0deg, focus-distance 0%, center 50% 50%, radius 100%,"+baseColor+", derive(rgb(255,0,0),"+Math.abs(pressureVariant)+"));");
+                    //p.setStyle("display:block;-fx-background-color:radial-gradient(focus-angle 0deg, focus-distance 0%, center 50% 50%, radius 100%,"+baseColor+", derive(rgb(255,0,0),"+Math.abs(pressureVariant)+"));");
+                    p.setStyle("display:block;-fx-background-color:rgb("+pressureVariant+",0,0);");
                 }
                 if(b.getSquares()[i][j].getOccupant() != null && b.getSquares()[i][j].getOccupant().getImage() != null){
                     Image img = b.getSquares()[i][j].getOccupant().getImage();
