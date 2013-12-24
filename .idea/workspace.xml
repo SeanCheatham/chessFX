@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;src/chess/Main.java&#10;">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess/Main.java" afterPath="$PROJECT_DIR$/src/chess/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -70,11 +70,11 @@
       <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/chess/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="94" selection-start="3236" selection-end="3236" vertical-scroll-proportion="0.43674177" vertical-offset="813" max-vertical-offset="2145">
+            <state line="69" column="94" selection-start="3118" selection-end="3118" vertical-scroll-proportion="0.5657439" vertical-offset="708" max-vertical-offset="2280">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2996#3286#0" expanded="true" />
-                <element signature="e#3263#3264#0" expanded="true" />
+                <element signature="e#3159#3726#0" expanded="true" />
+                <element signature="e#3703#3704#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -699,7 +699,7 @@
       <workItem from="1387744509297" duration="670000" />
       <workItem from="1387838433691" duration="1404000" />
       <workItem from="1387842815479" duration="29000" />
-      <workItem from="1387842864791" duration="632000" />
+      <workItem from="1387842864791" duration="1344000" />
     </task>
     <task id="LOCAL-00001" summary="Empty squares use images rather than rectangles">
       <created>1387753703238</created>
@@ -709,11 +709,15 @@
       <created>1387753804598</created>
       <updated>1387753804598</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added click-listener to pieces. Currently shows piece type in console">
+      <created>1387843580557</created>
+      <updated>1387843580557</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4544000" />
+    <option name="totallyTimeSpent" value="5256000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
@@ -739,7 +743,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21387696" sideWeight="0.6703755" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2117347" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21045919" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -796,7 +800,8 @@
     <MESSAGE value="Replaced if-else-if-else-if with switch for determining piece moves in Piece" />
     <MESSAGE value="Empty squares use images rather than rectangles" />
     <MESSAGE value="Added images for empty squares" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added images for empty squares" />
+    <MESSAGE value="Added click-listener to pieces. Currently shows piece type in console" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added click-listener to pieces. Currently shows piece type in console" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -818,8 +823,8 @@
         <state line="13" column="32" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="2635">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2996#3286#0" expanded="true" />
-            <element signature="e#3263#3264#0" expanded="true" />
+            <element signature="e#3159#3726#0" expanded="true" />
+            <element signature="e#3703#3704#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -958,8 +963,8 @@
         <state line="54" column="0" selection-start="2205" selection-end="2205" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="2325">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2996#3286#0" expanded="true" />
-            <element signature="e#3263#3264#0" expanded="true" />
+            <element signature="e#3159#3726#0" expanded="true" />
+            <element signature="e#3703#3704#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1028,8 +1033,8 @@
         <state line="8" column="0" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="493">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2996#3286#0" expanded="true" />
-            <element signature="e#3263#3264#0" expanded="true" />
+            <element signature="e#3159#3726#0" expanded="true" />
+            <element signature="e#3703#3704#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1150,11 +1155,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/chess/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="94" selection-start="3236" selection-end="3236" vertical-scroll-proportion="0.43674177" vertical-offset="813" max-vertical-offset="2145">
+        <state line="69" column="94" selection-start="3118" selection-end="3118" vertical-scroll-proportion="0.5657439" vertical-offset="708" max-vertical-offset="2280">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2996#3286#0" expanded="true" />
-            <element signature="e#3263#3264#0" expanded="true" />
+            <element signature="e#3159#3726#0" expanded="true" />
+            <element signature="e#3703#3704#0" expanded="true" />
           </folding>
         </state>
       </provider>
