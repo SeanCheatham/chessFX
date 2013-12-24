@@ -72,7 +72,10 @@ public class Main extends Application {
                     {
                         @Override
                         public void handle(MouseEvent t) {
-                            System.out.println("CLICKED: " + currentPiece.getType().getEType());
+
+                            System.out.println("CLICKED: " +
+                                    ((currentPiece.getTeam()==0)?"WHITE":"BLACK")
+                                    + " " + currentPiece.getType().getEType());
 
                             if(p.getStyle().equals("display:block;-fx-background-color:yellow"))
                                 p.setStyle(storedStyle);
