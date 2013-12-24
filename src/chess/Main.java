@@ -1,9 +1,11 @@
 package chess;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.CycleMethod;
 import javafx.stage.Stage;
 import javafx.geometry.*;
@@ -62,6 +64,14 @@ public class Main extends Application {
                 if(b.getSquares()[i][j].getOccupant() != null && b.getSquares()[i][j].getOccupant().getImage() != null){
                     Image img = b.getSquares()[i][j].getOccupant().getImage();
                     ImageView r = new ImageView(img);
+                    final Piece currentPiece = b.getSquares()[i][j].getOccupant();
+                    r.setOnMouseClicked(new EventHandler<MouseEvent>()
+                    {
+                        @Override
+                        public void handle(MouseEvent t) {
+                            System.out.println("CLICKED: " + currentPiece.getType().getEType());
+                        }
+                    });
                     p.getChildren().add(r);
                 }
                 board.add(p,b.getWidth()-1-i,b.getHeight()-1-j);
