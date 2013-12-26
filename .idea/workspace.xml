@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess/Main.java" afterPath="$PROJECT_DIR$/src/chess/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess/Piece.java" afterPath="$PROJECT_DIR$/src/chess/Piece.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -829,7 +827,11 @@
       <created>1388017146534</created>
       <updated>1388017146534</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Corrected board layout">
+      <created>1388027517597</created>
+      <updated>1388027517597</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -910,7 +912,8 @@
     <MESSAGE value="Merge branch 'master' of C:\Users\Sean\Documents\Projects\chessFX with conflicts.&#10;Rook calculations appear on board" />
     <MESSAGE value="Rook calculations appear on board" />
     <MESSAGE value="Re-implemented piece clicking" />
-    <option name="LAST_COMMIT_MESSAGE" value="Re-implemented piece clicking" />
+    <MESSAGE value="Corrected board layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrected board layout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
