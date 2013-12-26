@@ -6,21 +6,22 @@ public class Location {
 	private int file;
     private int rank;
     private Piece occupant;
-    public int whitePressure;
-    public int blackPressure;
+    public int[] pressure = new int[2];
 	
 	public Location(int x, int y) {
 		file = x;
 		rank = y;
 		occupant = null;
-        whitePressure = 0;
-        blackPressure = 0;
+        pressure[0] = 0;
+        pressure[1] = 0;
 	}
 	
 	public Location(int x, int y, Piece p) {
 		file = x;
 		rank = y;
 		occupant = p;
+        pressure[0] = 0;
+        pressure[1] = 0;
 	}
 	
 	public String toString(){
@@ -85,6 +86,8 @@ public class Location {
     public Piece getOccupant() {
         return occupant;
     }
+
+    public int[] getPressure() { return pressure; }
 
     public Color getColor(){
         if((this.file+this.rank)%2 == 0) return Color.BLACK;

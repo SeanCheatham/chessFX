@@ -63,4 +63,14 @@ public class Board {
         }
         return ret;
     }
+
+    public Location[][] runCalculator(){
+
+        for(Location[] locArray : this.squares){
+            for(Location loc : locArray){
+                if(loc.getOccupant() != null) loc.getOccupant().calculateAttackableSquares(loc);
+            }
+        }
+        return squares;
+    }
 }
