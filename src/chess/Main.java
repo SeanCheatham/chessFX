@@ -32,8 +32,8 @@ public class Main extends Application {
         console.appendText("Constructed board of width: "+Integer.toString(b.getWidth())+" and Height: "+Integer.toString(b.getHeight())+"\n");
         addPieces(b);
         console.appendText(b.toString());
-        for(int i = b.getWidth() - 1; i >= 0; i--){
-            for(int j = b.getHeight() - 1; j >= 0; j--){
+        for(int j = b.getHeight() - 1; j >= 0; j--){
+            for(int i = 0; i <= b.getWidth() - 1; i++){
                 final Pane p = new Pane();
                 p.setPrefHeight(60);
                 p.setPrefWidth(60);
@@ -41,7 +41,7 @@ public class Main extends Application {
                 String baseColor = "#323232";
                 if(b.getSquares()[i][j].getColor() == Color.WHITE) baseColor = "#ffffff";
                 int pressure = b.getSquares()[i][j].pressure[0]-b.getSquares()[i][j].pressure[1];
-                System.out.println(pressure);
+                //System.out.println(pressure);
                 int pressureVariant = 64 * (1+Math.abs(pressure)/2);
                 if(pressure == 0){
                     p.setStyle("display:block;-fx-background-color:"+baseColor+";");
@@ -78,7 +78,7 @@ public class Main extends Application {
                     });
                     p.getChildren().add(r);
                 }
-                board.add(p,b.getWidth()-1-i,b.getHeight()-1-j);
+                board.add(p,i,b.getHeight()-1-j);
             }
         }
         grid.add(board,0,0);
@@ -97,22 +97,22 @@ public class Main extends Application {
     private void addPieces(Board b){
         //White's back line
         b.getSquares()[0][0].setOccupant(new Piece(new Type(eType.ROOK),0,b));
-        /*b.getSquares()[1][0].setOccupant(new Piece(new Type(eType.KNIGHT),0,b));
+        b.getSquares()[1][0].setOccupant(new Piece(new Type(eType.KNIGHT),0,b));
         b.getSquares()[2][0].setOccupant(new Piece(new Type(eType.BISHOP), 0, b));
         b.getSquares()[3][0].setOccupant(new Piece(new Type(eType.QUEEN),0,b));
         b.getSquares()[4][0].setOccupant(new Piece(new Type(eType.KING),0,b));
         b.getSquares()[5][0].setOccupant(new Piece(new Type(eType.BISHOP),0,b));
-        b.getSquares()[6][0].setOccupant(new Piece(new Type(eType.KNIGHT),0,b));*/
+        b.getSquares()[6][0].setOccupant(new Piece(new Type(eType.KNIGHT),0,b));
         b.getSquares()[7][0].setOccupant(new Piece(new Type(eType.ROOK),0,b));
         //White's front line
-        //b.getSquares()[0][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
+        /*//b.getSquares()[0][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
         b.getSquares()[1][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
         b.getSquares()[2][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
         b.getSquares()[3][3].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
         b.getSquares()[4][1].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
         b.getSquares()[5][3].setOccupant(new Piece(new Type(eType.PAWN),0,b));
         b.getSquares()[6][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
-        //b.getSquares()[7][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
+        //b.getSquares()[7][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));*/
         //Black's front line
         //b.getSquares()[0][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
         b.getSquares()[1][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
@@ -130,7 +130,7 @@ public class Main extends Application {
         b.getSquares()[4][7].setOccupant(new Piece(new Type(eType.KING),1,b));
         b.getSquares()[5][7].setOccupant(new Piece(new Type(eType.BISHOP), 1, b));
         b.getSquares()[6][7].setOccupant(new Piece(new Type(eType.KNIGHT), 1, b));*/
-        b.getSquares()[7][7].setOccupant(new Piece(new Type(eType.ROOK), 1, b));
+        //b.getSquares()[7][7].setOccupant(new Piece(new Type(eType.ROOK), 1, b));
         for(Location[] locArray : b.getSquares()){
             for(Location loc : locArray){
                 if(loc.getOccupant() != null) loc.getOccupant().calculateAttackableSquares(loc);

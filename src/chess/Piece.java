@@ -74,7 +74,9 @@ public class Piece {
         {
             //--- Possible PAWN moves ------------------------------------------------------
             case PAWN:
+                //Calculate moves for White
                 if(this.team == 0){
+                    //Calculate the move on the right diagonal
                     if(currentLocation.getFile()+1 <= this.board.getWidth()-1
                             && currentLocation.getRank()+1 <= this.board.getHeight()-1
                             && (this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()+1].getOccupant() == null
@@ -82,7 +84,7 @@ public class Piece {
                         vals.add(this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()+1]);
                         this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()+1].pressure[this.team]++;
                     }
-
+                    //Calculate the move on the left diagonal
                     if(currentLocation.getFile()-1 >= 0
                             && currentLocation.getRank()+1 <= this.board.getHeight()-1
                             && (this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()+1].getOccupant() == null
@@ -92,14 +94,16 @@ public class Piece {
                     }
 
                 }
+                //Calculate moves for Black
                 if(this.team == 1){
+                    //Calculate the move on the right diagonal
                     if(currentLocation.getFile()+1 <= this.board.getWidth()-1 && currentLocation.getRank()-1 >= 0
                             && (this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()-1].getOccupant() == null
                             || this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()-1].getOccupant().team != 1)){
                         vals.add(this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()-1]);
                         this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()-1].pressure[this.team]++;
                     }
-
+                    //Calculate the move on the left diagonal
                     if(currentLocation.getFile()-1 >= 0 && currentLocation.getRank()-1 >= 0
                             && (this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()-1].getOccupant() == null
                             || this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()-1].getOccupant().team != 1)){
@@ -137,7 +141,7 @@ public class Piece {
                         break;
                     }
                 }
-                //Calculate moves for squares higher ranks
+                //Calculate moves for squares on higher ranks
                 for(int i = currentLocation.getRank(); i <= board.getHeight()-1; i++){
                     Location target = this.board.getSquares()[currentLocation.getFile()][i];
                     if(target.getOccupant() == null){
@@ -167,13 +171,17 @@ public class Piece {
             //--- Possible BISHOP moves ----------------------------------------------------
             case BISHOP:
                 for(int i = 0; i <= Math.min(board.getWidth()-1-currentLocation.getFile(), board.getHeight()-1-currentLocation.getRank()); i++){
-                    if(this.board.getSquares()[currentLocation.getFile()+i][currentLocation.getRank()+i].getOccupant() == null)
-                        vals.add(this.board.getSquares()[currentLocation.getFile()+i][currentLocation.getRank()+i]);
-                    else if(this.board.getSquares()[currentLocation.getFile()+i][currentLocation.getRank()+i].getOccupant().team != this.team){
-                        vals.add(this.board.getSquares()[currentLocation.getFile()+i][currentLocation.getRank()+i]);
+                    Location target = this.board.getSquares()[currentLocation.getFile()+i][currentLocation.getRank()+i];
+                    if(target.getOccupant() == null){
+                        vals.add(target);
+                        target.pressure[this.team]++;
+                    }
+                    else if(target.getOccupant().team != this.team){
+                        vals.add(target);
+                        target.pressure[this.team]++;
                         break;
                     }
-                }
+                }/*
                 for(int i = 0; i <= Math.min(board.getWidth()-1-currentLocation.getFile(), board.getHeight()-1-currentLocation.getRank()); i++){
                     if(this.board.getSquares()[currentLocation.getFile()+i][currentLocation.getRank()+i].getOccupant() == null)
                         vals.add(this.board.getSquares()[currentLocation.getFile()+i][currentLocation.getRank()+i]);
@@ -181,7 +189,7 @@ public class Piece {
                         vals.add(this.board.getSquares()[currentLocation.getFile()+i][currentLocation.getRank()+i]);
                         break;
                     }
-                }
+                }*/
                 break;
             default:
                 break;
