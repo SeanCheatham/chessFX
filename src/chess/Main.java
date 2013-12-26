@@ -1,9 +1,11 @@
 package chess;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
@@ -32,7 +34,7 @@ public class Main extends Application {
         console.appendText(b.toString());
         for(int i = b.getWidth() - 1; i >= 0; i--){
             for(int j = b.getHeight() - 1; j >= 0; j--){
-                Pane p = new Pane();
+                final Pane p = new Pane();
                 p.setPrefHeight(60);
                 p.setPrefWidth(60);
                 p.setId(""+i+","+j);
@@ -55,6 +57,25 @@ public class Main extends Application {
                 if(b.getSquares()[i][j].getOccupant() != null && b.getSquares()[i][j].getOccupant().getImage() != null){
                     Image img = b.getSquares()[i][j].getOccupant().getImage();
                     ImageView r = new ImageView(img);
+                    final Piece currentPiece = b.getSquares()[i][j].getOccupant();
+                    final String storedStyle = p.getStyle();
+
+                    //Print clicked piece to console and toggle yellow color to show selection
+                    r.setOnMouseClicked(new EventHandler<MouseEvent>()
+                    {
+                        @Override
+                        public void handle(MouseEvent t) {
+
+                            System.out.println("CLICKED: " +
+                                    ((currentPiece.getTeam()==0)?"WHITE":"BLACK")
+                                    + " " + currentPiece.getType().getEType());
+
+                            if(p.getStyle().equals("display:block;-fx-background-color:yellow"))
+                                p.setStyle(storedStyle);
+                            else
+                                p.setStyle("display:block;-fx-background-color:yellow");
+                        }
+                    });
                     p.getChildren().add(r);
                 }
                 board.add(p,b.getWidth()-1-i,b.getHeight()-1-j);
