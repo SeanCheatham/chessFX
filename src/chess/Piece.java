@@ -1,7 +1,8 @@
 package chess;
 
-import java.util.*;
 import javafx.scene.image.Image;
+
+import java.util.ArrayList;
 
 public class Piece {
 	private Type type;
@@ -64,137 +65,180 @@ public class Piece {
                 }
                 break;
         }
-	}
+        String piecePath = "chess/resources/images/";
+        if (this.team == 0) {
+            piecePath += "w";
+        } else if (this.team == 1) {
+            piecePath += "b";
+        }
+        piecePath += Character.toString(this.getType().getShortName()).toLowerCase();
+        piecePath += "";
+        piecePath += ".png";
+        image = new Image(piecePath);
+    }
 	
 	public void calculateAttackableSquares(Location loc){
 		ArrayList<Location> vals = new ArrayList<Location>();
-		Location currentLocation = loc;
 
-        switch(this.type.getEType())
-        {
             //--- Possible PAWN moves ------------------------------------------------------
-            case PAWN:
-                //Calculate moves for White
-                if(this.team == 0){
-                    //Calculate the move on the right diagonal
-                    if(currentLocation.getFile()+1 <= this.board.getWidth()-1
-                            && currentLocation.getRank()+1 <= this.board.getHeight()-1
-                            && (this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()+1].getOccupant() == null
-                            || this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()+1].getOccupant().team != 0)){
-                        vals.add(this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()+1]);
-                        this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()+1].pressure[this.team]++;
-                    }
-                    //Calculate the move on the left diagonal
-                    if(currentLocation.getFile()-1 >= 0
-                            && currentLocation.getRank()+1 <= this.board.getHeight()-1
-                            && (this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()+1].getOccupant() == null
-                            || this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()+1].getOccupant().team != 0)){
-                        vals.add(this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()+1]);
-                        this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()+1].pressure[this.team]++;
-                    }
+        if (this.type.getEType() == eType.PAWN) {
+            //Calculate moves for White
+            if (this.team == 0) {
+                //Calculate the move on the right diagonal
+                if (loc.getFile() + 1 <= this.board.getWidth() - 1
+                        && loc.getRank() + 1 <= this.board.getHeight() - 1
+                        && (this.board.getSquares()[loc.getFile() + 1][loc.getRank() + 1].getOccupant() == null
+                        || this.board.getSquares()[loc.getFile() + 1][loc.getRank() + 1].getOccupant().team != 0)) {
+                    vals.add(this.board.getSquares()[loc.getFile() + 1][loc.getRank() + 1]);
+                    this.board.getSquares()[loc.getFile() + 1][loc.getRank() + 1].pressure[this.team]++;
+                }
+                //Calculate the move on the left diagonal
+                if (loc.getFile() - 1 >= 0
+                        && loc.getRank() + 1 <= this.board.getHeight() - 1
+                        && (this.board.getSquares()[loc.getFile() - 1][loc.getRank() + 1].getOccupant() == null
+                        || this.board.getSquares()[loc.getFile() - 1][loc.getRank() + 1].getOccupant().team != 0)) {
+                    vals.add(this.board.getSquares()[loc.getFile() - 1][loc.getRank() + 1]);
+                    this.board.getSquares()[loc.getFile() - 1][loc.getRank() + 1].pressure[this.team]++;
+                }
 
+            }
+            //Calculate moves for Black
+            if (this.team == 1) {
+                //Calculate the move on the right diagonal
+                if (loc.getFile() + 1 <= this.board.getWidth() - 1 && loc.getRank() - 1 >= 0
+                        && (this.board.getSquares()[loc.getFile() + 1][loc.getRank() - 1].getOccupant() == null
+                        || this.board.getSquares()[loc.getFile() + 1][loc.getRank() - 1].getOccupant().team != 1)) {
+                    vals.add(this.board.getSquares()[loc.getFile() + 1][loc.getRank() - 1]);
+                    this.board.getSquares()[loc.getFile() + 1][loc.getRank() - 1].pressure[this.team]++;
                 }
-                //Calculate moves for Black
-                if(this.team == 1){
-                    //Calculate the move on the right diagonal
-                    if(currentLocation.getFile()+1 <= this.board.getWidth()-1 && currentLocation.getRank()-1 >= 0
-                            && (this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()-1].getOccupant() == null
-                            || this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()-1].getOccupant().team != 1)){
-                        vals.add(this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()-1]);
-                        this.board.getSquares()[currentLocation.getFile()+1][currentLocation.getRank()-1].pressure[this.team]++;
-                    }
-                    //Calculate the move on the left diagonal
-                    if(currentLocation.getFile()-1 >= 0 && currentLocation.getRank()-1 >= 0
-                            && (this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()-1].getOccupant() == null
-                            || this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()-1].getOccupant().team != 1)){
-                        vals.add(this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()-1]);
-                        this.board.getSquares()[currentLocation.getFile()-1][currentLocation.getRank()-1].pressure[this.team]++;
-                    }
+                //Calculate the move on the left diagonal
+                if (loc.getFile() - 1 >= 0 && loc.getRank() - 1 >= 0
+                        && (this.board.getSquares()[loc.getFile() - 1][loc.getRank() - 1].getOccupant() == null
+                        || this.board.getSquares()[loc.getFile() - 1][loc.getRank() - 1].getOccupant().team != 1)) {
+                    vals.add(this.board.getSquares()[loc.getFile() - 1][loc.getRank() - 1]);
+                    this.board.getSquares()[loc.getFile() - 1][loc.getRank() - 1].pressure[this.team]++;
+                }
 
-                }
-                break;
-            //--- Possible ROOK moves ------------------------------------------------------
-            case ROOK:
-                //Calculate moves for squares on higher files
-                for(int i = currentLocation.getFile(); i <= board.getWidth()-1; i++){
-                    Location target = this.board.getSquares()[i][currentLocation.getRank()];
-                    if(target.getOccupant() == null){
-                        vals.add(target);
-                        target.pressure[this.team]++;
-                    }
-                    else if(target.getOccupant().team != this.team){
-                        vals.add(target);
-                        target.pressure[this.team]++;
-                        break;
-                    }
-                }
-                //Calculate moves for squares on lower files
-                for(int i = currentLocation.getFile(); i >= 0; i--){
-                    Location target = this.board.getSquares()[i][currentLocation.getRank()];
-                    if(target.getOccupant() == null){
-                        vals.add(target);
-                        target.pressure[this.team]++;
-                    }
-                    else if(target.getOccupant().team != this.team){
-                        vals.add(target);
-                        target.pressure[this.team]++;
-                        break;
-                    }
-                }
-                //Calculate moves for squares on higher ranks
-                for(int i = currentLocation.getRank(); i <= board.getHeight()-1; i++){
-                    Location target = this.board.getSquares()[currentLocation.getFile()][i];
-                    if(target.getOccupant() == null){
-                        vals.add(target);
-                        target.pressure[this.team]++;
-                    }
-                    else if(target.getOccupant().team != this.team){
-                        vals.add(target);
-                        target.pressure[this.team]++;
-                        break;
-                    }
-                }
-                //Calculate moves for squares on lower ranks
-                for(int i = currentLocation.getRank(); i >= 0; i--){
-                    Location target = this.board.getSquares()[currentLocation.getFile()][i];
-                    if(target.getOccupant() == null){
-                        vals.add(target);
-                        target.pressure[this.team]++;
-                    }
-                    else if(target.getOccupant().team != this.team){
-                        vals.add(target);
-                        target.pressure[this.team]++;
-                        break;
-                    }
-                }
-                break;
-            //--- Possible BISHOP moves ----------------------------------------------------
-            case BISHOP:
-                for(int i = 0; i <= Math.min(board.getWidth()-1-currentLocation.getFile(), board.getHeight()-1-currentLocation.getRank()); i++){
-                    Location target = this.board.getSquares()[currentLocation.getFile()+i][currentLocation.getRank()+i];
-                    if(target.getOccupant() == null){
-                        vals.add(target);
-                        target.pressure[this.team]++;
-                    }
-                    else if(target.getOccupant().team != this.team){
-                        vals.add(target);
-                        target.pressure[this.team]++;
-                        break;
-                    }
-                }/*
-                for(int i = 0; i <= Math.min(board.getWidth()-1-currentLocation.getFile(), board.getHeight()-1-currentLocation.getRank()); i++){
-                    if(this.board.getSquares()[currentLocation.getFile()+i][currentLocation.getRank()+i].getOccupant() == null)
-                        vals.add(this.board.getSquares()[currentLocation.getFile()+i][currentLocation.getRank()+i]);
-                    else if(this.board.getSquares()[currentLocation.getFile()+i][currentLocation.getRank()+i].getOccupant().team != this.team){
-                        vals.add(this.board.getSquares()[currentLocation.getFile()+i][currentLocation.getRank()+i]);
-                        break;
-                    }
-                }*/
-                break;
-            default:
-                break;
+            }
         }
-		attackableSquares = vals;
+        //--- Possible ROOK moves ------------------------------------------------------
+        else if (this.type.getEType() == eType.ROOK) {
+            //Calculate moves for squares on higher files
+            for (int i = loc.getFile(); i <= board.getWidth() - 1; i++) {
+                Location target = this.board.getSquares()[i][loc.getRank()];
+                if (target.getOccupant() == null) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                } else if (target.getOccupant().team != this.team) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                    break;
+                } else {
+                    break;
+                }
+            }
+            //Calculate moves for squares on lower files
+            for (int i = loc.getFile(); i >= 0; i--) {
+                Location target = this.board.getSquares()[i][loc.getRank()];
+                if (target.getOccupant() == null) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                } else if (target.getOccupant().team != this.team) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                    break;
+                } else {
+                    break;
+                }
+            }
+            //Calculate moves for squares on higher ranks
+            for (int i = loc.getRank(); i <= board.getHeight() - 1; i++) {
+                Location target = this.board.getSquares()[loc.getFile()][i];
+                if (target.getOccupant() == null) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                } else if (target.getOccupant().team != this.team) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                    break;
+                } else {
+                    break;
+                }
+            }
+            //Calculate moves for squares on lower ranks
+            for (int i = loc.getRank(); i >= 0; i--) {
+                Location target = this.board.getSquares()[loc.getFile()][i];
+                if (target.getOccupant() == null) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                } else if (target.getOccupant().team != this.team) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                    break;
+                } else {
+                    break;
+                }
+            }
+        }
+        //--- Possible BISHOP moves ----------------------------------------------------
+        else if (this.type.getEType() == eType.BISHOP)
+            //Calculate moves for squares on the upper right diagonal
+            for (int i = 0; i <= Math.min(board.getWidth() - 1 - loc.getFile(), board.getHeight() - 1 - loc.getRank()); i++) {
+                Location target = this.board.getSquares()[loc.getFile() + i][loc.getRank() + i];
+                if (target.getOccupant() == null) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                } else if (target.getOccupant().team != this.team) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                    break;
+                } else {
+                    break;
+                }
+            }
+        //Calculate moves for squares on the upper left diagonal
+        for (int i = 0; i <= Math.min(loc.getFile(), board.getHeight() - 1 - loc.getRank()); i++) {
+            Location target = this.board.getSquares()[loc.getFile() - i][loc.getRank() + i];
+            if (target.getOccupant() == null) {
+                vals.add(target);
+                target.pressure[this.team]++;
+            } else if (target.getOccupant().team != this.team) {
+                vals.add(target);
+                target.pressure[this.team]++;
+                break;
+            } else {
+                break;
+            }
+        }
+        //Calculate moves for squares on the lower right diagonal
+        for (int i = 0; i <= Math.min(board.getWidth() - 1 - loc.getFile(), loc.getRank()); i++) {
+            Location target = this.board.getSquares()[loc.getFile() + i][loc.getRank() - i];
+            if (target.getOccupant() == null) {
+                vals.add(target);
+                target.pressure[this.team]++;
+            } else if (target.getOccupant().team != this.team) {
+                vals.add(target);
+                target.pressure[this.team]++;
+                break;
+            } else {
+                break;
+            }
+        }
+        //Calculate moves for squares on the lower left diagonal
+        for (int i = 0; i <= Math.min(loc.getFile(), loc.getRank()); i++) {
+            Location target = this.board.getSquares()[loc.getFile() - i][loc.getRank() - i];
+            if (target.getOccupant() == null) {
+                vals.add(target);
+                target.pressure[this.team]++;
+            } else if (target.getOccupant().team != this.team) {
+                vals.add(target);
+                target.pressure[this.team]++;
+                break;
+            } else {
+                break;
+            }
+        }
+        attackableSquares = vals;
 	}
 
     public Type getType() {
@@ -214,16 +258,6 @@ public class Piece {
     }
 
     public Image getImage() {
-        String piecePath = "chess/resources/images/";
-        if(this.team == 0){
-            piecePath += "w";
-        }
-        else if(this.team == 1){
-            piecePath += "b";
-        }
-        piecePath += Character.toString(this.getType().getShortName()).toLowerCase();
-        piecePath += "";
-        piecePath += ".png";
-        return new Image(piecePath);
+        return image;
     }
 }
