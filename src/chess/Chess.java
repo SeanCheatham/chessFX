@@ -1,15 +1,7 @@
 package chess;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-
 public class Chess {
-	/*public static void main(String[] args) {
+    /*public static void main(String[] args) {
 		Board b = new Board(8,8);
 		//White's back line
 		b.getSquares()[0][0].setOccupant(new Piece(new Type(eType.ROOK),0,b));

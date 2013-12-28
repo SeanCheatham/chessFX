@@ -21,7 +21,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("board.fxml"));
         primaryStage.initStyle(StageStyle.DECORATED);
-        GridPane grid = new GridPane();
+        GridPane layout = new GridPane();
         GridPane board = new GridPane();
         TextArea console = new TextArea();
 
@@ -82,9 +82,9 @@ public class Main extends Application {
                 board.add(p,i,b.getHeight()-1-j);
             }
         }
-        grid.add(board,0,0);
-        grid.add(console,0,1);
-        primaryStage.setScene(new Scene(grid));
+        layout.add(board, 0, 0);
+        layout.add(console, 0, 1);
+        primaryStage.setScene(new Scene(layout));
         primaryStage.show();
 
 
@@ -96,47 +96,48 @@ public class Main extends Application {
     }
 
     private void addPieces(Board b){
-//        //White's back line
+        //White's back line
         b.getSquares()[0][0].setOccupant(new Piece(new Type(eType.ROOK),0,b));
-//        b.getSquares()[1][0].setOccupant(new Piece(new Type(eType.KNIGHT),0,b));
+        b.getSquares()[1][0].setOccupant(new Piece(new Type(eType.KNIGHT), 0, b));
         b.getSquares()[2][3].setOccupant(new Piece(new Type(eType.BISHOP), 0, b));
-//        b.getSquares()[3][0].setOccupant(new Piece(new Type(eType.QUEEN),0,b));
-//        b.getSquares()[4][0].setOccupant(new Piece(new Type(eType.KING),0,b));
-//        b.getSquares()[5][0].setOccupant(new Piece(new Type(eType.BISHOP),0,b));
-//        b.getSquares()[6][0].setOccupant(new Piece(new Type(eType.KNIGHT),0,b));
-//        b.getSquares()[7][0].setOccupant(new Piece(new Type(eType.ROOK),0,b));
-//        //White's front line
-//        b.getSquares()[0][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
-//        b.getSquares()[1][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
-//        b.getSquares()[2][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
-//        b.getSquares()[3][1].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
-//        b.getSquares()[4][1].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
-//        b.getSquares()[5][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
-//        b.getSquares()[6][1].setOccupant(new Piece(new Type(eType.PAWN),0,b));
+        b.getSquares()[3][0].setOccupant(new Piece(new Type(eType.QUEEN), 0, b));
+        b.getSquares()[4][0].setOccupant(new Piece(new Type(eType.KING), 0, b));
+        b.getSquares()[5][0].setOccupant(new Piece(new Type(eType.BISHOP), 0, b));
+        b.getSquares()[6][0].setOccupant(new Piece(new Type(eType.KNIGHT), 0, b));
+        b.getSquares()[7][0].setOccupant(new Piece(new Type(eType.ROOK), 0, b));
+        //White's front line
+        b.getSquares()[0][1].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
+        b.getSquares()[1][1].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
+        b.getSquares()[2][1].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
+        b.getSquares()[3][1].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
+        b.getSquares()[4][1].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
+        b.getSquares()[5][1].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
+        b.getSquares()[6][1].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
         b.getSquares()[7][1].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
-//        //Black's front line
-//        b.getSquares()[0][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
-//        b.getSquares()[1][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
-//        b.getSquares()[2][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
-//        b.getSquares()[3][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
-//        b.getSquares()[4][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
-//        b.getSquares()[5][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
-//        b.getSquares()[6][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
-//        b.getSquares()[7][6].setOccupant(new Piece(new Type(eType.PAWN),1,b));
-//        //Black's back line
-//        b.getSquares()[0][7].setOccupant(new Piece(new Type(eType.ROOK),1,b));
-//        b.getSquares()[1][7].setOccupant(new Piece(new Type(eType.KNIGHT),1,b));
-//        b.getSquares()[2][5].setOccupant(new Piece(new Type(eType.BISHOP),1,b));
-//        b.getSquares()[3][7].setOccupant(new Piece(new Type(eType.QUEEN),1,b));
-//        b.getSquares()[4][7].setOccupant(new Piece(new Type(eType.KING),1,b));
+        //Black's front line
+        b.getSquares()[0][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        b.getSquares()[1][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        b.getSquares()[2][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        b.getSquares()[3][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        b.getSquares()[4][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        b.getSquares()[5][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        b.getSquares()[6][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        b.getSquares()[7][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        //Black's back line
+        b.getSquares()[0][7].setOccupant(new Piece(new Type(eType.ROOK), 1, b));
+        b.getSquares()[1][7].setOccupant(new Piece(new Type(eType.KNIGHT), 1, b));
+        b.getSquares()[2][5].setOccupant(new Piece(new Type(eType.BISHOP), 1, b));
+        b.getSquares()[3][7].setOccupant(new Piece(new Type(eType.QUEEN), 1, b));
+        b.getSquares()[4][7].setOccupant(new Piece(new Type(eType.KING), 1, b));
         b.getSquares()[5][7].setOccupant(new Piece(new Type(eType.BISHOP), 1, b));
-//        b.getSquares()[6][7].setOccupant(new Piece(new Type(eType.KNIGHT), 1, b));
-//        b.getSquares()[7][7].setOccupant(new Piece(new Type(eType.ROOK), 1, b));
+        b.getSquares()[6][7].setOccupant(new Piece(new Type(eType.KNIGHT), 1, b));
+        b.getSquares()[7][7].setOccupant(new Piece(new Type(eType.ROOK), 1, b));
         for(Location[] locArray : b.getSquares()){
             for(Location loc : locArray){
                 if(loc.getOccupant() != null) loc.getOccupant().calculateAttackableSquares(loc);
             }
         }
+
     }
 
 }

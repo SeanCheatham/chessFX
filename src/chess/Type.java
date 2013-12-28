@@ -1,20 +1,18 @@
 package chess;
 
-import javafx.scene.image.Image;
-
 public class Type {
-	private eType name;
-	private char shortName;
-	private int value;
-	
-	public Type(){
-		this(eType.NONE);
-	}
-	
-	public Type(eType n){
+    private eType name;
+    private char shortName;
+    private int value;
+
+    public Type() {
+        this(eType.NONE);
+    }
+
+    public Type(eType n) {
         name = n;
 
-        switch(n){
+        switch (n) {
             case PAWN:
                 value = 1;
                 shortName = 'P';
@@ -43,17 +41,17 @@ public class Type {
                 value = 0;
                 shortName = '*';
         }
-	}
+    }
 
-    public eType getEType(){
+    public eType getEType() {
         return name;
     }
 
-    public char getShortName(){
+    public char getShortName() {
         return shortName;
     }
 
-    public int getValue(){
+    public int getValue() {
         return value;
     }
 }
