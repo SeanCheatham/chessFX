@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Corrected board layout&#10;Added bishop calculations&#10;NOTE: Seems to not be working under the current conditions?">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess/Chess.java" afterPath="$PROJECT_DIR$/src/chess/Chess.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess/Main.java" afterPath="$PROJECT_DIR$/src/chess/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess/Piece.java" afterPath="$PROJECT_DIR$/src/chess/Piece.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess/Type.java" afterPath="$PROJECT_DIR$/src/chess/Type.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess/board.fxml" afterPath="$PROJECT_DIR$/src/chess/board.fxml" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Fixed a couple errors, but rook and bishop calculations still do not work.">
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\Projects\chessFX\resources\images\bb.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\Projects\chessFX\resources\images\bk.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\Projects\chessFX\resources\images\bn.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\Projects\chessFX\resources\images\bp.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\Projects\chessFX\resources\images\bq.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\Projects\chessFX\resources\images\br.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\Projects\chessFX\resources\images\wb.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\Projects\chessFX\resources\images\wk.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\Projects\chessFX\resources\images\wn.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\Projects\chessFX\resources\images\wp.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\Projects\chessFX\resources\images\wq.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\Projects\chessFX\resources\images\wr.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -18,6 +25,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="Commander">
+    <leftPanel />
+    <rightPanel url="file://$PROJECT_DIR$" />
+    <splitter proportion="0.5" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -95,7 +107,7 @@
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chess/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="131" column="0" selection-start="6709" selection-end="6709" vertical-scroll-proportion="0.0" vertical-offset="1731" max-vertical-offset="2244">
+            <state line="131" column="0" selection-start="6759" selection-end="6759" vertical-scroll-proportion="0.0" vertical-offset="1731" max-vertical-offset="2244">
               <folding />
             </state>
           </provider>
@@ -131,7 +143,7 @@
       <file leaf-file-name="Piece.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/chess/Piece.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="171" column="26" selection-start="8253" selection-end="8253" vertical-scroll-proportion="0.33187774" vertical-offset="2755" max-vertical-offset="3570">
+            <state line="180" column="37" selection-start="8670" selection-end="8670" vertical-scroll-proportion="0.7193396" vertical-offset="2755" max-vertical-offset="3570">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#798#808#0" expanded="true" />
@@ -143,7 +155,7 @@
       <file leaf-file-name="Type.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chess/Type.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="22" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1071">
+            <state line="5" column="22" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1071">
               <folding />
             </state>
           </provider>
@@ -552,20 +564,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chessFX" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chessFX" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -840,7 +838,11 @@
       <created>1388173151029</created>
       <updated>1388173151029</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed a couple errors, but rook and bishop calculations still do not work.">
+      <created>1388254185092</created>
+      <updated>1388254185092</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -875,7 +877,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39708266" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -924,7 +926,8 @@
     <MESSAGE value="Corrected board layout" />
     <MESSAGE value="Corrected board layout&#10;" />
     <MESSAGE value="Corrected board layout&#10;Added bishop calculations&#10;NOTE: Seems to not be working under the current conditions?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrected board layout&#10;Added bishop calculations&#10;NOTE: Seems to not be working under the current conditions?" />
+    <MESSAGE value="Fixed a couple errors, but rook and bishop calculations still do not work." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a couple errors, but rook and bishop calculations still do not work." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1077,11 +1080,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/images/wp.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/chess/Type.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="22" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="975">
@@ -1138,16 +1136,6 @@
         <state line="21" column="48" selection-start="2066" selection-end="2066" vertical-scroll-proportion="0.0" vertical-offset="676" max-vertical-offset="1260" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/images/wp.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/images/bb.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/chess/resources/images/bk.gif">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1175,7 +1163,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/chess/Type.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="22" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1071">
+        <state line="5" column="22" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1071">
           <folding />
         </state>
       </provider>
@@ -1223,7 +1211,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/chess/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="0" selection-start="6709" selection-end="6709" vertical-scroll-proportion="0.0" vertical-offset="1731" max-vertical-offset="2244">
+        <state line="131" column="0" selection-start="6759" selection-end="6759" vertical-scroll-proportion="0.0" vertical-offset="1731" max-vertical-offset="2244">
           <folding />
         </state>
       </provider>
@@ -1237,7 +1225,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/chess/Piece.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="26" selection-start="8253" selection-end="8253" vertical-scroll-proportion="0.33187774" vertical-offset="2755" max-vertical-offset="3570">
+        <state line="180" column="37" selection-start="8670" selection-end="8670" vertical-scroll-proportion="0.7193396" vertical-offset="2755" max-vertical-offset="3570">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#798#808#0" expanded="true" />
