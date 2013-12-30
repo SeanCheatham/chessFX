@@ -76,56 +76,60 @@ public class Piece {
             //Calculate moves for squares on higher files
             for (int i = loc.getFile(); i <= board.getWidth() - 1; i++) {
                 Location target = this.board.getSquares()[i][loc.getRank()];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
                 if (target.getOccupant() == null) {
                     vals.add(target);
                     target.pressure[this.team]++;
                 } else if (target.getOccupant().team != this.team) {
                     vals.add(target);
                     target.pressure[this.team]++;
-                    break;
-                } else {
                     break;
                 }
             }
             //Calculate moves for squares on lower files
             for (int i = loc.getFile(); i >= 0; i--) {
                 Location target = this.board.getSquares()[i][loc.getRank()];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
                 if (target.getOccupant() == null) {
                     vals.add(target);
                     target.pressure[this.team]++;
                 } else if (target.getOccupant().team != this.team) {
                     vals.add(target);
                     target.pressure[this.team]++;
-                    break;
-                } else {
                     break;
                 }
             }
             //Calculate moves for squares on higher ranks
             for (int i = loc.getRank(); i <= board.getHeight() - 1; i++) {
                 Location target = this.board.getSquares()[loc.getFile()][i];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
                 if (target.getOccupant() == null) {
                     vals.add(target);
                     target.pressure[this.team]++;
                 } else if (target.getOccupant().team != this.team) {
                     vals.add(target);
                     target.pressure[this.team]++;
-                    break;
-                } else {
                     break;
                 }
             }
             //Calculate moves for squares on lower ranks
             for (int i = loc.getRank(); i >= 0; i--) {
                 Location target = this.board.getSquares()[loc.getFile()][i];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
                 if (target.getOccupant() == null) {
                     vals.add(target);
                     target.pressure[this.team]++;
                 } else if (target.getOccupant().team != this.team) {
                     vals.add(target);
                     target.pressure[this.team]++;
-                    break;
-                } else {
                     break;
                 }
             }
@@ -133,50 +137,56 @@ public class Piece {
         //--- Possible BISHOP moves ----------------------------------------------------
         if (e == eType.BISHOP) {
             //Calculate moves for squares on the upper right diagonal
-            for (int i = 0; i <= Math.min(board.getWidth() - 1 - loc.getFile(), board.getHeight() - 1 - loc.getRank()); i++) {
+            for (int i = 1; i <= Math.min(board.getWidth() - 1 - loc.getFile(), board.getHeight() - 1 - loc.getRank()); i++) {
                 Location target = this.board.getSquares()[loc.getFile() + i][loc.getRank() + i];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
                 if (target.getOccupant() == null) {
                     vals.add(target);
                     target.pressure[this.team]++;
                 } else if (target.getOccupant().team != this.team) {
                     vals.add(target);
                     target.pressure[this.team]++;
-                    break;
-                } else {
                     break;
                 }
             }
             //Calculate moves for squares on the upper left diagonal
-            for (int i = 0; i <= Math.min(loc.getFile(), board.getHeight() - 1 - loc.getRank()); i++) {
+            for (int i = 1; i <= Math.min(loc.getFile(), board.getHeight() - 1 - loc.getRank()); i++) {
                 Location target = this.board.getSquares()[loc.getFile() - i][loc.getRank() + i];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
                 if (target.getOccupant() == null) {
                     vals.add(target);
                     target.pressure[this.team]++;
                 } else if (target.getOccupant().team != this.team) {
                     vals.add(target);
                     target.pressure[this.team]++;
-                    break;
-                } else {
                     break;
                 }
             }
             //Calculate moves for squares on the lower right diagonal
-            for (int i = 0; i <= Math.min(board.getWidth() - 1 - loc.getFile(), loc.getRank()); i++) {
+            for (int i = 1; i <= Math.min(board.getWidth() - 1 - loc.getFile(), loc.getRank()); i++) {
                 Location target = this.board.getSquares()[loc.getFile() + i][loc.getRank() - i];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
                 if (target.getOccupant() == null) {
                     vals.add(target);
                     target.pressure[this.team]++;
                 } else if (target.getOccupant().team != this.team) {
                     vals.add(target);
                     target.pressure[this.team]++;
-                    break;
-                } else {
                     break;
                 }
             }
             //Calculate moves for squares on the lower left diagonal
-            for (int i = 0; i <= Math.min(loc.getFile(), loc.getRank()); i++) {
+            for (int i = 1; i <= Math.min(loc.getFile(), loc.getRank()); i++) {
                 Location target = this.board.getSquares()[loc.getFile() - i][loc.getRank() - i];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
                 if (target.getOccupant() == null) {
                     vals.add(target);
                     target.pressure[this.team]++;
@@ -184,11 +194,133 @@ public class Piece {
                     vals.add(target);
                     target.pressure[this.team]++;
                     break;
-                } else {
+                }
+            }
+        }
+        //--- Possible QUEEN moves ----------------------------------------------------
+        if (e == eType.QUEEN) {
+            //Calculate moves for squares on the upper right diagonal
+            for (int i = 1; i <= Math.min(board.getWidth() - 1 - loc.getFile(), board.getHeight() - 1 - loc.getRank()); i++) {
+                Location target = this.board.getSquares()[loc.getFile() + i][loc.getRank() + i];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
+                if (target.getOccupant() == null) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                } else if (target.getOccupant().team != this.team) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                    break;
+                }
+            }
+            //Calculate moves for squares on the upper left diagonal
+            for (int i = 1; i <= Math.min(loc.getFile(), board.getHeight() - 1 - loc.getRank()); i++) {
+                Location target = this.board.getSquares()[loc.getFile() - i][loc.getRank() + i];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
+                if (target.getOccupant() == null) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                } else if (target.getOccupant().team != this.team) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                    break;
+                }
+            }
+            //Calculate moves for squares on the lower right diagonal
+            for (int i = 1; i <= Math.min(board.getWidth() - 1 - loc.getFile(), loc.getRank()); i++) {
+                Location target = this.board.getSquares()[loc.getFile() + i][loc.getRank() - i];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
+                if (target.getOccupant() == null) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                } else if (target.getOccupant().team != this.team) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                    break;
+                }
+            }
+            //Calculate moves for squares on the lower left diagonal
+            for (int i = 1; i <= Math.min(loc.getFile(), loc.getRank()); i++) {
+                Location target = this.board.getSquares()[loc.getFile() - i][loc.getRank() - i];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
+                if (target.getOccupant() == null) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                } else if (target.getOccupant().team != this.team) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                    break;
+                }
+            }
+            //Calculate moves for squares on higher files
+            for (int i = loc.getFile(); i <= board.getWidth() - 1; i++) {
+                Location target = this.board.getSquares()[i][loc.getRank()];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
+                if (target.getOccupant() == null) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                } else if (target.getOccupant().team != this.team) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                    break;
+                }
+            }
+            //Calculate moves for squares on lower files
+            for (int i = loc.getFile(); i >= 0; i--) {
+                Location target = this.board.getSquares()[i][loc.getRank()];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
+                if (target.getOccupant() == null) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                } else if (target.getOccupant().team != this.team) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                    break;
+                }
+            }
+            //Calculate moves for squares on higher ranks
+            for (int i = loc.getRank(); i <= board.getHeight() - 1; i++) {
+                Location target = this.board.getSquares()[loc.getFile()][i];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
+                if (target.getOccupant() == null) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                } else if (target.getOccupant().team != this.team) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                    break;
+                }
+            }
+            //Calculate moves for squares on lower ranks
+            for (int i = loc.getRank(); i >= 0; i--) {
+                Location target = this.board.getSquares()[loc.getFile()][i];
+                if (target.getOccupant() != null && target.getOccupant().team == this.team && target.getOccupant() != this) {
+                    break;
+                }
+                if (target.getOccupant() == null) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
+                } else if (target.getOccupant().team != this.team) {
+                    vals.add(target);
+                    target.pressure[this.team]++;
                     break;
                 }
             }
         }
+
         attackableSquares = vals;
 	}
 
