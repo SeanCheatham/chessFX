@@ -42,7 +42,7 @@ public class Main extends Application {
                 p.setId(""+i+","+j);
                 String baseColor = "#323232";
                 if (l.getColor() == Color.WHITE) baseColor = "#ffffff";
-                int pressure = l.pressure[0] - l.pressure[1];
+                int pressure = l.getPressure()[0] - l.getPressure()[1];
                 //System.out.println(pressure);
                 int pressureVariant = 127 + 20 * pressure;
                 if(pressure == 0){

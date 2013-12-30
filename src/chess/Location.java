@@ -6,9 +6,9 @@ public class Location {
 	private int file;
     private int rank;
     private Piece occupant;
-    public int[] pressure = new int[2];
-	
-	public Location(int x, int y) {
+    private int[] pressure = new int[2];
+
+    public Location(int x, int y) {
 		file = x;
 		rank = y;
 		occupant = null;
@@ -87,7 +87,14 @@ public class Location {
         return occupant;
     }
 
-    public int[] getPressure() { return pressure; }
+    public int[] getPressure() {
+
+        return pressure;
+    }
+
+    public void setPressure(int n, int val) {
+        pressure[n] += val;
+    }
 
     public Color getColor(){
         if((this.file+this.rank)%2 == 0) return Color.BLACK;
