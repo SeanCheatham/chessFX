@@ -1,5 +1,7 @@
 package chess;
 
+import java.util.Stack;
+
 public class Board {
 	private int height;
     private int width;
@@ -20,15 +22,47 @@ public class Board {
 		for(int i = height-1; i >= 0; i--){
 			System.out.print("["+(i+1)+"]");
 			for(int j = 0; j <= width-1; j++){
-				if(squares[j][i].getOccupant() != null) System.out.print(" "+squares[j][i].getOccupant().getType().getShortName()+" ");
-				else System.out.print(" _ ");
-			}
+                if (squares[j][i].getOccupant() != null)
+                    System.out.print(" " + squares[j][i].getOccupant().getType().getShortName() + " ");
+                else
+                    System.out.print(" _ ");
+            }
 			System.out.println();
 		}
 		System.out.println("   [A][B][C][D][E][F][G][H]");
 	}
-	
-	public void listPieces(){
+
+    public void getFEN() {
+
+        Stack<Character> fenBuffer = new Stack<Character>();
+        String fenOutput = "";
+
+        for (int i = height - 1; i >= 0; i--) {
+            for (int j = 0; j <= width - 1; j++) {
+                if (squares[j][i].getOccupant() != null) {
+                    char occupant = squares[j][i].getOccupant().getType().getShortName();
+                    if (squares[j][i].getOccupant().getTeam() == 1)
+                        fenBuffer.push(String.valueOf(occupant).toLowerCase().charAt(0));
+                    else
+                        fenBuffer.push(occupant);
+                } else
+                    fenBuffer.push('1');
+            }
+
+            if (i != 0) fenBuffer.push('/');
+        }
+
+        while (!fenBuffer.isEmpty()) {
+            Character tempChar = fenBuffer.pop();
+            if (Character.isDigit(tempChar) && Character.isDigit(fenBuffer.peek())) {
+                fenBuffer.push(String.valueOf(Character.getNumericValue(fenBuffer.pop()) + Character.getNumericValue(tempChar)).charAt(0));
+            } else fenOutput += tempChar;
+        }
+
+        System.out.println(new StringBuilder(fenOutput).reverse().toString());
+    }
+
+    public void listPieces(){
 		for(int i = 0; i <= height - 1; i++){
 			for(int j = 0; j <= width-1; j++){
 				if(squares[i][j] != null) System.out.println(squares[i][j]);

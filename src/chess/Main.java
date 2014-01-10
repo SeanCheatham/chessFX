@@ -117,13 +117,13 @@ public class Main extends Application {
         b.getSquares()[6][1].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
         b.getSquares()[7][1].setOccupant(new Piece(new Type(eType.PAWN), 0, b));
         //Black's front line
-        b.getSquares()[0][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
-        b.getSquares()[1][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
-        b.getSquares()[2][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        b.getSquares()[0][4].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        b.getSquares()[1][4].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        b.getSquares()[2][5].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
         b.getSquares()[3][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
-        b.getSquares()[4][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
-        b.getSquares()[5][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
-        b.getSquares()[6][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        b.getSquares()[4][5].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        b.getSquares()[5][5].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
+        b.getSquares()[6][3].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
         b.getSquares()[7][6].setOccupant(new Piece(new Type(eType.PAWN), 1, b));
         //Black's back line
         b.getSquares()[0][7].setOccupant(new Piece(new Type(eType.ROOK), 1, b));
@@ -139,6 +139,8 @@ public class Main extends Application {
                 if(loc.getOccupant() != null) loc.getOccupant().calculateAttackableSquares(loc);
             }
         }
+
+        b.getFEN();
 
     }
 

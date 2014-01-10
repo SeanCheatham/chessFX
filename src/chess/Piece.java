@@ -5,16 +5,16 @@ import javafx.scene.image.Image;
 import java.util.ArrayList;
 
 public class Piece {
-	private Type type;
+    private Type type;
     private int team;
     private Board board;
     private ArrayList<Location> attackableSquares;
     private Image image;
-	
-	public Piece(Type ty, int t, Board b) {
-		type = ty;
-		team = t;
-		board = b;
+
+    public Piece(Type ty, int t, Board b) {
+        type = ty;
+        team = t;
+        board = b;
         String piecePath = "chess/resources/images/";
         if (this.team == 0) {
             piecePath += "w";
@@ -26,9 +26,9 @@ public class Piece {
         piecePath += ".png";
         image = new Image(piecePath);
     }
-	
-	public void calculateAttackableSquares(Location loc){
-		ArrayList<Location> vals = new ArrayList<Location>();
+
+    public void calculateAttackableSquares(Location loc) {
+        ArrayList<Location> vals = new ArrayList<Location>();
         eType e = this.type.getEType();
         //--- Possible PAWN moves ------------------------------------------------------
         if (e == eType.PAWN) {
@@ -50,7 +50,6 @@ public class Piece {
                     vals.add(this.board.getSquares()[loc.getFile() - 1][loc.getRank() + 1]);
                     this.board.getSquares()[loc.getFile() - 1][loc.getRank() + 1].setPressure(this.team, 1);
                 }
-
             }
             //Calculate moves for Black
             if (this.team == 1) {
@@ -68,7 +67,6 @@ public class Piece {
                     vals.add(this.board.getSquares()[loc.getFile() - 1][loc.getRank() - 1]);
                     this.board.getSquares()[loc.getFile() - 1][loc.getRank() - 1].setPressure(this.team, 1);
                 }
-
             }
         }
         //--- Possible ROOK moves ------------------------------------------------------
@@ -367,7 +365,7 @@ public class Piece {
             }
         }
         attackableSquares = vals;
-	}
+    }
 
     public Type getType() {
         return type;
