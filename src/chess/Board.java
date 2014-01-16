@@ -32,6 +32,17 @@ public class Board {
         System.out.println("   [A][B][C][D][E][F][G][H]");
     }
 
+    public void setupFromFEN(String FEN) {
+        Location[][] fenBoard = new Location[width][height];
+
+        //Parse through FEN
+        //Setup board
+
+        //-----SCRAP-----
+        //fenBoard[0][0].setOccupant(new Piece(new Type(eType.ROOK),0,this));
+
+    }
+
     public void getFEN() {
         Stack<Character> fenBuffer = new Stack<Character>();
         String fenOutput = "";

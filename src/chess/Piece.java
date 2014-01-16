@@ -27,6 +27,17 @@ public class Piece {
         image = new Image(piecePath);
     }
 
+    public boolean isMoveLegal(Location piece, String target) {
+
+        //get attackable squares into an array
+
+        //check if target is in array
+        //if it is, return true
+        //els, return false
+
+        return false;
+    }
+
     public void calculateAttackableSquares(Location loc) {
         ArrayList<Location> vals = new ArrayList<Location>();
         eType e = this.type.getEType();
